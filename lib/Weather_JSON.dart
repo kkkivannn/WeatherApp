@@ -27,12 +27,6 @@ class _PageWeatherState extends State<PageWeather> {
     });
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getWeather();
-  // }
-
   @override
   Widget build(BuildContext context) {
     getWeather();
