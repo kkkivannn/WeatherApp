@@ -38,6 +38,10 @@ dependencies:
   url_launcher: ^6.0.20
   url_launcher_web: ^2.0.6
   flutter_bloc: ^8.0.1
+  dio: ^4.0.6
+  equatable: ^2.0.3
+  dartz: ^0.10.1
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
@@ -63,32 +67,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/msc.png
-    - images/pit.png
-    - images/Kali.png
-    - images/So.png
-    - images/kaz.png
-    - images/Line.png
-    - images/Moscow.png
-    - images/Piter.png
-    - images/Kaliningrad.png
-    - images/Kazan.png
-    - images/Sochi.png
-    - icons/PartlyCloudy-Bold.png
-    - icons/PartlyCloudy-Bulk.png
-    - icons/PartlyCloudy.png
-    - icons/RainThunder-Bold.png
-    - icons/RainThunder-Bulk.png
-    - icons/RainThunder.png
-    - icons/Rainy-Bold.png
-    - icons/Rainy-Bulk.png
-    - icons/Rainy.png
-    - icons/Snowy-Bold.png
-    - icons/Snowy-Bulk.png
-    - icons/Snowy.png
-    - icons/Sunny-Bold.png
-    - icons/Sunny-Bulk.png
-    - icons/Sunny.png
+    - images/
+    - icons/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
