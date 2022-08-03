@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../kaliningrad/kaliningrad.dart';
+import 'package:test_app/feature/presentation/pages/kaliningrad/kaliningrad.dart';
 
 class ThirdKaliningrad extends StatelessWidget {
   const ThirdKaliningrad({Key? key}) : super(key: key);

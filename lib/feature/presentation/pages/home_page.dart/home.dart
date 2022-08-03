@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'widgets/card_kaliningrad.dart';
-import 'widgets/card_kazan.dart';
-import 'widgets/card_moscow.dart';
-import 'widgets/card_saint_peterburg.dart';
-import 'widgets/card_sochi.dart';
+import '../../widgets/card_kaliningrad.dart';
+import '../../widgets/card_kazan.dart';
+import '../../widgets/card_moscow.dart';
+import '../../widgets/card_saint_peterburg.dart';
+import '../../widgets/card_sochi.dart';
 
 class CountOfTownWeather extends StatefulWidget {
   const CountOfTownWeather({Key? key}) : super(key: key);

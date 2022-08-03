@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../kazan/kazan.dart';
+import 'package:test_app/feature/presentation/pages/kazan/kazan.dart';
 
 class FourKazan extends StatelessWidget {
   const FourKazan({Key? key}) : super(key: key);

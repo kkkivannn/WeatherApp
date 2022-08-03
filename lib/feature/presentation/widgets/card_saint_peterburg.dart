@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../saint_petersburg/saint_peterburg.dart';
+import 'package:test_app/feature/presentation/pages/saint_petersburg/saint_peterburg.dart';
 
 class SecondSaintPeterburg extends StatelessWidget {
   const SecondSaintPeterburg({Key? key}) : super(key: key);

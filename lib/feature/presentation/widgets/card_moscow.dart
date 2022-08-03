@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/screens/moscow/Moscow.dart';
+
+import '../pages/moscow/moscow.dart';
 
 class FirstMoscow extends StatelessWidget {
   const FirstMoscow({Key? key}) : super(key: key);

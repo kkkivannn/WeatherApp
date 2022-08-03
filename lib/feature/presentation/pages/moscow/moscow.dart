@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
+import 'package:test_app/theme/widgets/custom_button.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../theme/widgets/custom_button.dart';
 
 class MoscowPage extends StatelessWidget {
   const MoscowPage({
@@ -25,7 +24,7 @@ class MoscowPage extends StatelessWidget {
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[Text('Что-то пошло не так!')],
+                  children: const <Widget>[Text('Error!')],
                 ),
               ),
             ),
@@ -42,7 +41,7 @@ class MoscowPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.only(top: 35),
                         child: Text(
-                          state.weather.description,
+                          state.weather.nameTown,
                           style: const TextStyle(
                             fontSize: 30,
                             fontFamily: "OpenSans",

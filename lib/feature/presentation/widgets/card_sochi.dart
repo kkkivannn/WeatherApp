@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../sochi/Sochi.dart';
+import '../pages/sochi/Sochi.dart';
 
 class FiveSochi extends StatelessWidget {
   const FiveSochi({Key? key}) : super(key: key);

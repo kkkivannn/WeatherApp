@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
+import 'package:test_app/theme/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../theme/widgets/custom_button.dart';
-import 'bloc/weather_sochi_screen_cubit.dart';
-import 'bloc/weather_sochi_screen_state.dart';
 
 class SochiPage extends StatefulWidget {
   const SochiPage({Key? key}) : super(key: key);
@@ -17,11 +15,11 @@ class _SochiPageState extends State<SochiPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocBuilder<WeatherSochiScreenCubit, WeatherSochiScreenState>(
+    return BlocBuilder<WeatherCubit, WeatherState>(
       builder: (context, state) {
-        if (state is WeatherScreenEmptyState) {
-          context.read<WeatherSochiScreenCubit>().fetchWeather("Kaliningrad");
-        } else if (state is WeatherScreenErrorState) {
+        if (state is WeatherEmpty) {
+          context.read<WeatherCubit>().fetchWeather("Kaliningrad");
+        } else if (state is WeatherError) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -33,7 +31,7 @@ class _SochiPageState extends State<SochiPage> {
               ),
             ),
           );
-        } else if (state is WeatherScreenLoadedState) {
+        } else if (state is WeatherLoaded) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -45,7 +43,7 @@ class _SochiPageState extends State<SochiPage> {
                       Container(
                         padding: const EdgeInsets.only(top: 35),
                         child: Text(
-                          state.loadedWeather.nameTown,
+                          state.weather.nameTown,
                           style: const TextStyle(
                             fontSize: 30,
                             fontFamily: "OpenSans",
@@ -54,7 +52,7 @@ class _SochiPageState extends State<SochiPage> {
                         ),
                       ),
                       Text(
-                        "${state.loadedWeather.temperature.toStringAsFixed(0)}\u00B0",
+                        "${state.weather.temperature.toStringAsFixed(0)}\u00B0",
                         style: const TextStyle(
                           fontFamily: "OpenSans",
                           fontSize: 90,
@@ -66,7 +64,7 @@ class _SochiPageState extends State<SochiPage> {
                           bottom: 30,
                         ),
                         child: Text(
-                          state.loadedWeather.main,
+                          state.weather.description,
                           style: const TextStyle(
                             color: Colors.white,
                             fontFamily: "OpenSans",
@@ -112,7 +110,7 @@ class _SochiPageState extends State<SochiPage> {
                                             padding:
                                                 const EdgeInsets.only(top: 40),
                                             child: Text(
-                                              state.loadedWeather.feelsLike
+                                              state.weather.feelsLike
                                                   .toStringAsFixed(1),
                                               style: const TextStyle(
                                                 color: Colors.black,
@@ -146,7 +144,7 @@ class _SochiPageState extends State<SochiPage> {
                                             padding:
                                                 const EdgeInsets.only(top: 40),
                                             child: Text(
-                                              '${state.loadedWeather.speedWind.toStringAsFixed(1)} м/c',
+                                              '${state.weather.speedWind.toStringAsFixed(1)} м/c',
                                               style: const TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 25,

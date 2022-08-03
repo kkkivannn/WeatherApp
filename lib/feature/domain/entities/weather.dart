@@ -5,6 +5,7 @@ class WeatherEntiti {
   final dynamic feelsLike;
   final dynamic speedWind;
   final String description;
+  final String nameTown;
   final CoordinatesEntiti coordinates;
 
   WeatherEntiti({
@@ -13,5 +14,6 @@ class WeatherEntiti {
     required this.speedWind,
     required this.description,
     required this.coordinates,
+    required this.nameTown,
   });
 }

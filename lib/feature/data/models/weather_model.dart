@@ -8,12 +8,14 @@ class WeatherModel extends WeatherEntiti {
     required speedWind,
     required description,
     required coordinates,
+    required nameTown,
   }) : super(
           temperature: temperature,
           feelsLike: feelsLike,
           speedWind: speedWind,
           description: description,
           coordinates: coordinates,
+          nameTown: nameTown,
         );
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
@@ -25,6 +27,7 @@ class WeatherModel extends WeatherEntiti {
       coordinates: json['coord'] != null
           ? CoordinatesModel.fromJson(json['coord'])
           : null,
+      nameTown: json['name'] as String,
     );
   }
 }
