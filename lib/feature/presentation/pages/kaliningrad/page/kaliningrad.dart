@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
+import 'package:test_app/feature/presentation/pages/kaliningrad/controller/weather_kaliningrad_cubit.dart';
 import 'package:test_app/theme/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SochiPage extends StatefulWidget {
-  const SochiPage({Key? key}) : super(key: key);
+class KaliningradPage extends StatefulWidget {
+  const KaliningradPage({Key? key}) : super(key: key);
 
   @override
-  _SochiPageState createState() => _SochiPageState();
+  _KaliningradPageState createState() => _KaliningradPageState();
 }
 
-class _SochiPageState extends State<SochiPage> {
+class _KaliningradPageState extends State<KaliningradPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocBuilder<WeatherCubit, WeatherState>(
+    return BlocBuilder<WeatherKaliningradCubit, WeatherKaliningradState>(
       builder: (context, state) {
-        if (state is WeatherEmpty) {
-          context.read<WeatherCubit>().fetchWeather("Kaliningrad");
-        } else if (state is WeatherError) {
+        if (state is WeatherKaliningradEmpty) {
+          context.read<WeatherKaliningradCubit>().fetchWeather("Kaliningrad");
+        } else if (state is WeatherKaliningradError) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -31,7 +31,7 @@ class _SochiPageState extends State<SochiPage> {
               ),
             ),
           );
-        } else if (state is WeatherLoaded) {
+        } else if (state is WeatherKaliningradLoaded) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -144,7 +144,7 @@ class _SochiPageState extends State<SochiPage> {
                                             padding:
                                                 const EdgeInsets.only(top: 40),
                                             child: Text(
-                                              '${state.weather.speedWind.toStringAsFixed(1)} м/c',
+                                              '${state.weather.speedWind} м/c',
                                               style: const TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 25,
@@ -164,7 +164,7 @@ class _SochiPageState extends State<SochiPage> {
                                           TextButton(
                                             onPressed: () async {
                                               const _url =
-                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%A1%D0%BE%D1%87%D0%B8+4%D0%BA&tbm=isch&ved=2ahUKEwiYsOGx0IL2AhUOCHcKHZCfCw0Q2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%A1%D0%BE%D1%87%D0%B8+4%D0%BA&gs_lcp=CgNpbWcQAzIHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoICAAQCBAHEB5Q_AxYzxpgpyBoAHAAeACAAUiIAe4CkgEBNpgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=zRcMYtiVMo6Q3AOQv65o&bih=961&biw=1920';
+                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4+4%D0%BA&tbm=isch&ved=2ahUKEwiMl4fBz4L2AhUBTMAKHTDFDcEQ2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4+4%D0%BA&gs_lcp=CgNpbWcQAzIHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoICAAQBxAFEB46CAgAEAgQBxAeUOIHWNcqYKAuaABwAHgAgAFeiAHqBZIBAjEzmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=4RYMYsyiHIGYgQawireIDA&bih=961&biw=1920#imgrc=zQjfrx7pWUpUBM';
                                               if (await canLaunch(_url)) {
                                                 await launch(_url);
                                               }
@@ -179,7 +179,7 @@ class _SochiPageState extends State<SochiPage> {
                                             ),
                                           ),
                                           Image.asset(
-                                            'images/So.png',
+                                            'images/Kali.png',
                                             height:
                                                 (size.height > 696) ? 150 : 0,
                                             width: (size.width > 454) ? 150 : 0,

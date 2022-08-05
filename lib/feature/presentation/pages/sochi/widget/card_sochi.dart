@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/feature/presentation/pages/kazan/kazan.dart';
 
-class FourKazan extends StatelessWidget {
-  const FourKazan({Key? key}) : super(key: key);
+import '../page/sochi.dart';
+
+class FiveSochi extends StatelessWidget {
+  const FiveSochi({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class FourKazan extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const KazanPage()));
+            MaterialPageRoute(builder: (context) => const SochiPage()));
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -21,7 +22,7 @@ class FourKazan extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(left: 21, right: 15),
               child: const Text(
-                '4',
+                '5',
                 style: TextStyle(
                   fontFamily: "OpenSans",
                   fontSize: 20,
@@ -42,7 +43,7 @@ class FourKazan extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Казань',
+                      'Сочи',
                       style: TextStyle(
                         fontFamily: "OpenSans",
                         fontSize: (size.width < 390) ? 22 : 25,
@@ -54,7 +55,7 @@ class FourKazan extends StatelessWidget {
                     width: 230,
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
-                      'Сказочно красивый город, который славится множеством значимыхдостопримечательностей и архитектурных памятников. Здесь смешаны воедино национальные традиции загадочного Востока и современного Запада.',
+                      'Летняя, морская, горнолыжная столица России и главный курорт страны. Черноморская здравница манит туристов отличными пляжами субтропической природой, стабильно солнечной погодой и крутизной горных пиков.',
                       style: TextStyle(
                         fontFamily: "OpenSans",
                         color: Colors.white,
@@ -67,7 +68,7 @@ class FourKazan extends StatelessWidget {
             ),
             const Spacer(flex: 5),
             Image.asset(
-              'images/Kazan.png',
+              'images/Sochi.png',
               height: (size.width < 390) ? 0 : 60,
               width: (size.width < 390) ? 0 : 60,
               color: Colors.white,

@@ -1,37 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
-import 'package:test_app/theme/widgets/custom_button.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/feature/presentation/pages/moscow/controller/weather_moscow_cubit.dart';
+import 'package:test_app/theme/widgets/custom_button.dart';
 
-class KaliningradPage extends StatefulWidget {
-  const KaliningradPage({Key? key}) : super(key: key);
+import 'package:url_launcher/url_launcher.dart';
 
-  @override
-  _KaliningradPageState createState() => _KaliningradPageState();
-}
+class MoscowPage extends StatelessWidget {
+  const MoscowPage({
+    Key? key,
+  }) : super(key: key);
 
-class _KaliningradPageState extends State<KaliningradPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocBuilder<WeatherCubit, WeatherState>(
+    return BlocBuilder<WeatherMoscowCubit, WeatherMoscowState>(
       builder: (context, state) {
-        if (state is WeatherEmpty) {
-          context.read<WeatherCubit>().fetchWeather("Kaliningrad");
-        } else if (state is WeatherError) {
+        if (state is WeatherMoscowEmpty) {
+          context.read<WeatherMoscowCubit>().fetchWeather("Moscow");
+        } else if (state is WeatherMoscowError) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[Text('Что-то пошло не так!')],
+                  children: const <Widget>[Text('Error!')],
                 ),
               ),
             ),
           );
-        } else if (state is WeatherLoaded) {
+        } else if (state is WeatherMoscowLoaded) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -144,7 +142,7 @@ class _KaliningradPageState extends State<KaliningradPage> {
                                             padding:
                                                 const EdgeInsets.only(top: 40),
                                             child: Text(
-                                              '${state.weather.speedWind} м/c',
+                                              '${state.weather.speedWind.toStringAsFixed(1)} м/c',
                                               style: const TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 25,
@@ -164,7 +162,7 @@ class _KaliningradPageState extends State<KaliningradPage> {
                                           TextButton(
                                             onPressed: () async {
                                               const _url =
-                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4+4%D0%BA&tbm=isch&ved=2ahUKEwiMl4fBz4L2AhUBTMAKHTDFDcEQ2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4+4%D0%BA&gs_lcp=CgNpbWcQAzIHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoICAAQBxAFEB46CAgAEAgQBxAeUOIHWNcqYKAuaABwAHgAgAFeiAHqBZIBAjEzmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=4RYMYsyiHIGYgQawireIDA&bih=961&biw=1920#imgrc=zQjfrx7pWUpUBM';
+                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B+4%D0%BA&sxsrf=APq-WBvToMb60sCgJpFu667MkC1IzRx5lA:1644954785350&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiFxZuNvoL2AhVBmIsKHYuSDOIQ_AUoAXoECAEQAw&biw=1920&bih=961&dpr=1#imgrc=eB7mbfXxndH3UM';
                                               if (await canLaunch(_url)) {
                                                 await launch(_url);
                                               }
@@ -179,7 +177,7 @@ class _KaliningradPageState extends State<KaliningradPage> {
                                             ),
                                           ),
                                           Image.asset(
-                                            'images/Kali.png',
+                                            'images/msc.png',
                                             height:
                                                 (size.height > 696) ? 150 : 0,
                                             width: (size.width > 454) ? 150 : 0,

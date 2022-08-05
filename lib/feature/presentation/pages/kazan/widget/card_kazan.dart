@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/feature/presentation/pages/kazan/page/kazan.dart';
 
-import '../pages/moscow/moscow.dart';
-
-class FirstMoscow extends StatelessWidget {
-  const FirstMoscow({Key? key}) : super(key: key);
+class FourKazan extends StatelessWidget {
+  const FourKazan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +10,7 @@ class FirstMoscow extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MoscowPage()));
+            MaterialPageRoute(builder: (context) => const KazanPage()));
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -20,9 +19,9 @@ class FirstMoscow extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.only(left: 15, right: 15),
+              padding: const EdgeInsets.only(left: 21, right: 15),
               child: const Text(
-                '1',
+                '4',
                 style: TextStyle(
                   fontFamily: "OpenSans",
                   fontSize: 20,
@@ -34,17 +33,18 @@ class FirstMoscow extends StatelessWidget {
               'images/Line.png',
             ),
             Container(
-              padding: const EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(
+                left: 16,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Москва',
-                      textDirection: TextDirection.ltr,
+                      'Казань',
                       style: TextStyle(
-                        fontFamily: 'OpenSans',
+                        fontFamily: "OpenSans",
                         fontSize: (size.width < 390) ? 22 : 25,
                         color: Colors.white,
                       ),
@@ -54,11 +54,11 @@ class FirstMoscow extends StatelessWidget {
                     width: 230,
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
-                      'Очаровательный город, имеющий огромное количество достопримечательностей и интересных мест. Сюда ведут многие пути и человеческие судьбы. Москва — блистательный город, достойный называться столицей.',
+                      'Сказочно красивый город, который славится множеством значимыхдостопримечательностей и архитектурных памятников. Здесь смешаны воедино национальные традиции загадочного Востока и современного Запада.',
                       style: TextStyle(
                         fontFamily: "OpenSans",
-                        fontSize: (size.width < 390) ? 10 : 12,
                         color: Colors.white,
+                        fontSize: (size.width < 390) ? 10 : 12,
                       ),
                     ),
                   ),
@@ -67,7 +67,7 @@ class FirstMoscow extends StatelessWidget {
             ),
             const Spacer(flex: 5),
             Image.asset(
-              'images/Moscow.png',
+              'images/Kazan.png',
               height: (size.width < 390) ? 0 : 60,
               width: (size.width < 390) ? 0 : 60,
               color: Colors.white,

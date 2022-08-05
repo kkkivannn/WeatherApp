@@ -3,27 +3,29 @@ import 'package:equatable/equatable.dart';
 import 'package:test_app/feature/domain/entities/weather.dart';
 import 'package:test_app/feature/domain/usecases/get_weather.dart';
 
-part 'weather_state.dart';
+part 'weather_kaliningrad_state.dart';
 
 const SERVER_FAILURE_MESSAGE = 'Server Failure';
 const CACHED_FAILURE_MESSAGE = 'Cache Failure';
 
-class WeatherCubit extends Cubit<WeatherState> {
+class WeatherKaliningradCubit extends Cubit<WeatherKaliningradState> {
   final GetWeather getWeather;
-  WeatherCubit({required this.getWeather}) : super(WeatherEmpty());
+  WeatherKaliningradCubit({required this.getWeather})
+      : super(WeatherKaliningradEmpty());
 
   Future<void> fetchWeather(String nameTown) async {
     try {
-      emit(WeatherEmpty());
+      emit(WeatherKaliningradEmpty());
       final loadedWeatherOrFailure =
           await getWeather(NameTownParams(nameTown: nameTown));
       loadedWeatherOrFailure.fold(
-          (error) => emit(const WeatherError(message: SERVER_FAILURE_MESSAGE)),
+          (error) => emit(
+              const WeatherKaliningradError(message: SERVER_FAILURE_MESSAGE)),
           (weatherEntiti) {
-        emit(WeatherLoaded(weatherEntiti));
+        emit(WeatherKaliningradLoaded(weatherEntiti));
       });
     } catch (_) {
-      emit(const WeatherError(message: SERVER_FAILURE_MESSAGE));
+      emit(const WeatherKaliningradError(message: SERVER_FAILURE_MESSAGE));
     }
   }
 }

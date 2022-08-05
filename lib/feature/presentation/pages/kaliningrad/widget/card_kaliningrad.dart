@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/feature/presentation/pages/saint_petersburg/saint_peterburg.dart';
+import 'package:test_app/feature/presentation/pages/kaliningrad/page/kaliningrad.dart';
 
-class SecondSaintPeterburg extends StatelessWidget {
-  const SecondSaintPeterburg({Key? key}) : super(key: key);
+class ThirdKaliningrad extends StatelessWidget {
+  const ThirdKaliningrad({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class SecondSaintPeterburg extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const PiterPage()));
+            MaterialPageRoute(builder: (context) => const KaliningradPage()));
       },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -21,7 +21,7 @@ class SecondSaintPeterburg extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(left: 21, right: 15),
               child: const Text(
-                '2',
+                '3',
                 style: TextStyle(
                   fontFamily: "OpenSans",
                   fontSize: 20,
@@ -42,7 +42,7 @@ class SecondSaintPeterburg extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.only(top: 20),
                     child: Text(
-                      'Санкт - Петербург',
+                      'Калининград',
                       style: TextStyle(
                         fontFamily: "OpenSans",
                         fontSize: (size.width < 390) ? 22 : 25,
@@ -54,7 +54,7 @@ class SecondSaintPeterburg extends StatelessWidget {
                     width: 230,
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
-                      'Oдин из самых потрясающих городов Европы Это город удивительной архитектуры,романтики и вдохновения, разводных мостов и белых ночей.',
+                      'Настоящий кусочек Европы, принадлежащий России. С одной стороны – немецкие кирхи, бастионы и башни. С другой – русский язык, рубли в качестве валюты и лица соотечественников, слегка уступающие в приветливостивропейским.',
                       style: TextStyle(
                         fontFamily: "OpenSans",
                         color: Colors.white,
@@ -67,7 +67,7 @@ class SecondSaintPeterburg extends StatelessWidget {
             ),
             const Spacer(flex: 5),
             Image.asset(
-              'images/Piter.png',
+              'images/Kaliningrad.png',
               height: (size.width < 390) ? 0 : 60,
               width: (size.width < 390) ? 0 : 60,
               color: Colors.white,

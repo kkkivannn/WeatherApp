@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
 import 'package:test_app/theme/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class PiterPage extends StatefulWidget {
-  const PiterPage({Key? key}) : super(key: key);
+import '../controller/weather_kazan_cubit.dart';
 
-  @override
-  _PiterPageState createState() => _PiterPageState();
-}
+class KazanPage extends StatelessWidget {
+  const KazanPage({Key? key}) : super(key: key);
 
-class _PiterPageState extends State<PiterPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocBuilder<WeatherCubit, WeatherState>(
+    return BlocBuilder<WeatherKazanCubit, WeatherKazanState>(
       builder: (context, state) {
-        if (state is WeatherEmpty) {
-          context.read<WeatherCubit>().fetchWeather("Saint%20Petersburg");
-        } else if (state is WeatherError) {
+        if (state is WeatherKazanEmpty) {
+          context.read<WeatherKazanCubit>().fetchWeather("Kazan");
+        } else if (state is WeatherKazanError) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -31,7 +27,7 @@ class _PiterPageState extends State<PiterPage> {
               ),
             ),
           );
-        } else if (state is WeatherLoaded) {
+        } else if (state is WeatherKazanLoaded) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -111,7 +107,7 @@ class _PiterPageState extends State<PiterPage> {
                                                 const EdgeInsets.only(top: 40),
                                             child: Text(
                                               state.weather.feelsLike
-                                                  .toStringAsFixed(1),
+                                                  .toStringAsFixed(0),
                                               style: const TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 25,
@@ -164,7 +160,7 @@ class _PiterPageState extends State<PiterPage> {
                                           TextButton(
                                             onPressed: () async {
                                               const _url =
-                                                  "https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9F%D0%B8%D1%82%D0%B5%D1%80%D0%B0+4%D0%BA&tbm=isch&ved=2ahUKEwjr7ouPvoL2AhVLihoKHW9eD5oQ2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9F%D0%B8%D1%82%D0%B5%D1%80%D0%B0+4%D0%BA&gs_lcp=CgNpbWcQAzoFCAAQgAQ6BggAEAcQHjoICAAQCBAHEB5Q8QtYrilg6i1oAXAAeACAAVmIAdQGkgECMTSYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=pQQMYquIEcuUau-8vdAJ&bih=961&biw=1920#imgrc=yDcuiIkWYQ0PpM";
+                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C+4%D0%BA&tbm=isch&ved=2ahUKEwj6zf6Q0IL2AhWT8LsIHfEaDk0Q2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C+4%D0%BA&gs_lcp=CgNpbWcQAzIHCCMQ7wMQJzoGCAAQBxAeOggIABAHEAUQHjoICAAQCBAHEB46BQgAEIAEUJgOWJI_YK1CaAFwAHgAgAFWiAHzBpIBAjE1mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=iRcMYrrlBZPh7_UP8bW46AQ&bih=961&biw=1920';
                                               if (await canLaunch(_url)) {
                                                 await launch(_url);
                                               }
@@ -179,7 +175,7 @@ class _PiterPageState extends State<PiterPage> {
                                             ),
                                           ),
                                           Image.asset(
-                                            'images/pit.png',
+                                            'images/kaz.png',
                                             height:
                                                 (size.height > 696) ? 150 : 0,
                                             width: (size.width > 454) ? 150 : 0,

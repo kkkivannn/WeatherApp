@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
 import 'package:test_app/theme/widgets/custom_button.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
-class MoscowPage extends StatelessWidget {
-  const MoscowPage({
-    Key? key,
-  }) : super(key: key);
+import '../controller/weather_sochi_cubit.dart';
 
+class SochiPage extends StatefulWidget {
+  const SochiPage({Key? key}) : super(key: key);
+
+  @override
+  _SochiPageState createState() => _SochiPageState();
+}
+
+class _SochiPageState extends State<SochiPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocBuilder<WeatherCubit, WeatherState>(
+    return BlocBuilder<WeatherSochiCubit, WeatherSochiState>(
       builder: (context, state) {
-        if (state is WeatherEmpty) {
-          context.read<WeatherCubit>().fetchWeather("Moscow");
-        } else if (state is WeatherError) {
+        if (state is WeatherSochiEmpty) {
+          context.read<WeatherSochiCubit>().fetchWeather("Kaliningrad");
+        } else if (state is WeatherSochiError) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[Text('Error!')],
+                  children: const <Widget>[Text('Что-то пошло не так!')],
                 ),
               ),
             ),
           );
-        } else if (state is WeatherLoaded) {
+        } else if (state is WeatherSochiLoaded) {
           return SafeArea(
             child: Scaffold(
               backgroundColor: Colors.blue,
@@ -162,7 +165,7 @@ class MoscowPage extends StatelessWidget {
                                           TextButton(
                                             onPressed: () async {
                                               const _url =
-                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B+4%D0%BA&sxsrf=APq-WBvToMb60sCgJpFu667MkC1IzRx5lA:1644954785350&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiFxZuNvoL2AhVBmIsKHYuSDOIQ_AUoAXoECAEQAw&biw=1920&bih=961&dpr=1#imgrc=eB7mbfXxndH3UM';
+                                                  'https://www.google.com/search?q=%D0%A4%D0%BE%D1%82%D0%BE+%D0%A1%D0%BE%D1%87%D0%B8+4%D0%BA&tbm=isch&ved=2ahUKEwiYsOGx0IL2AhUOCHcKHZCfCw0Q2-cCegQIABAA&oq=%D0%A4%D0%BE%D1%82%D0%BE+%D0%A1%D0%BE%D1%87%D0%B8+4%D0%BA&gs_lcp=CgNpbWcQAzIHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoICAAQCBAHEB5Q_AxYzxpgpyBoAHAAeACAAUiIAe4CkgEBNpgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=zRcMYtiVMo6Q3AOQv65o&bih=961&biw=1920';
                                               if (await canLaunch(_url)) {
                                                 await launch(_url);
                                               }
@@ -177,7 +180,7 @@ class MoscowPage extends StatelessWidget {
                                             ),
                                           ),
                                           Image.asset(
-                                            'images/msc.png',
+                                            'images/So.png',
                                             height:
                                                 (size.height > 696) ? 150 : 0,
                                             width: (size.width > 454) ? 150 : 0,

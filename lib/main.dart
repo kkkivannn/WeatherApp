@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/feature/presentation/cubit/weather_cubit.dart';
+import 'feature/presentation/pages/kaliningrad/controller/weather_kaliningrad_cubit.dart';
+import 'feature/presentation/pages/kazan/controller/weather_kazan_cubit.dart';
+import 'feature/presentation/pages/moscow/controller/weather_moscow_cubit.dart';
+import 'feature/presentation/pages/saint_petersburg/controller/weather_saint_peterburg_cubit.dart';
+import 'feature/presentation/pages/sochi/controller/weather_sochi_cubit.dart';
 import 'injection_container.dart';
 import 'feature/presentation/pages/registration/registration_page.dart';
 
@@ -18,7 +22,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<WeatherCubit>(create: (context) => sl<WeatherCubit>())
+        BlocProvider<WeatherMoscowCubit>(
+          create: (context) => sl<WeatherMoscowCubit>(),
+        ),
+        BlocProvider<WeatherSaintPeterburgCubit>(
+          create: (context) => sl<WeatherSaintPeterburgCubit>(),
+        ),
+        BlocProvider<WeatherKaliningradCubit>(
+          create: (context) => sl<WeatherKaliningradCubit>(),
+        ),
+        BlocProvider<WeatherKazanCubit>(
+          create: (context) => sl<WeatherKazanCubit>(),
+        ),
+        BlocProvider<WeatherSochiCubit>(
+          create: (context) => sl<WeatherSochiCubit>(),
+        ),
       ],
       child: const MaterialApp(
         home: RegistrationPage(),
