@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:test_app/feature/domain/entities/coordinates.dart';
 
 class CoordinatesModel extends CoordinatesEntiti {

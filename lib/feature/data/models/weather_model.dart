@@ -1,3 +1,4 @@
+// Project imports:
 import 'package:test_app/feature/data/models/coordinates_model.dart';
 import 'package:test_app/feature/domain/entities/weather.dart';
 

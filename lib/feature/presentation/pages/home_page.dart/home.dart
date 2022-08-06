@@ -1,7 +1,10 @@
+// Dart imports:
 import 'dart:io';
 
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import '../kaliningrad/widget/card_kaliningrad.dart';
 import '../kazan/widget/card_kazan.dart';
 import '../moscow/widget/card_moscow.dart';

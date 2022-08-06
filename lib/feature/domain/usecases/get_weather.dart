@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+
+// Project imports:
 import 'package:test_app/core/error/failure.dart';
 import 'package:test_app/core/usecases/usecase.dart';
 import 'package:test_app/feature/domain/entities/weather.dart';

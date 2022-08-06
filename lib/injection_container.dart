@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:get_it/get_it.dart';
+
+// Project imports:
 import 'package:test_app/feature/data/datasources/weather_remote_data_source.dart';
 import 'package:test_app/feature/data/datasources/weather_remote_data_source_implement.dart';
 import 'package:test_app/feature/data/repository/weather_repository_impl.dart';

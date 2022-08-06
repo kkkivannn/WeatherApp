@@ -1,5 +1,8 @@
+// Package imports:
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
+// Project imports:
 import 'package:test_app/feature/domain/entities/weather.dart';
 import 'package:test_app/feature/domain/usecases/get_weather.dart';
 

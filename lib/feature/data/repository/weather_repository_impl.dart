@@ -1,6 +1,9 @@
+// Package imports:
+import 'package:dartz/dartz.dart';
+
+// Project imports:
 import 'package:test_app/core/error/exception.dart';
 import 'package:test_app/core/error/failure.dart';
-import 'package:dartz/dartz.dart';
 import 'package:test_app/feature/data/datasources/weather_remote_data_source.dart';
 import 'package:test_app/feature/data/models/weather_model.dart';
 import 'package:test_app/feature/domain/entities/weather.dart';

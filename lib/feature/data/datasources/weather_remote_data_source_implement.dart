@@ -1,6 +1,11 @@
-import 'package:http/http.dart' as https;
-import 'package:test_app/core/error/exception.dart';
+// Dart imports:
 import 'dart:convert';
+
+// Package imports:
+import 'package:http/http.dart' as https;
+
+// Project imports:
+import 'package:test_app/core/error/exception.dart';
 import 'package:test_app/feature/data/datasources/weather_remote_data_source.dart';
 import 'package:test_app/feature/data/models/weather_model.dart';
 

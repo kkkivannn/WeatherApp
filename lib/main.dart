@@ -1,14 +1,18 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+// Project imports:
 import 'feature/presentation/pages/kaliningrad/controller/weather_kaliningrad_cubit.dart';
 import 'feature/presentation/pages/kazan/controller/weather_kazan_cubit.dart';
 import 'feature/presentation/pages/moscow/controller/weather_moscow_cubit.dart';
+import 'feature/presentation/pages/registration/registration_page.dart';
 import 'feature/presentation/pages/saint_petersburg/controller/weather_saint_peterburg_cubit.dart';
 import 'feature/presentation/pages/sochi/controller/weather_sochi_cubit.dart';
-import 'injection_container.dart';
-import 'feature/presentation/pages/registration/registration_page.dart';
-
 import 'injection_container.dart' as di;
+import 'injection_container.dart';
 
 void main() async {
   await di.init();

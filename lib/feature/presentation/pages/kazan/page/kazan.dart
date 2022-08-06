@@ -1,8 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:test_app/theme/widgets/custom_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Project imports:
+import 'package:test_app/theme/widgets/custom_button.dart';
 import '../controller/weather_kazan_cubit.dart';
 
 class KazanPage extends StatelessWidget {
