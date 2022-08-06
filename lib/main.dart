@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'feature/presentation/pages/kaliningrad/controller/weather_kaliningrad_cubit.dart';
 import 'feature/presentation/pages/kazan/controller/weather_kazan_cubit.dart';
 import 'feature/presentation/pages/moscow/controller/weather_moscow_cubit.dart';
-import 'feature/presentation/pages/registration/registration_page.dart';
+import 'feature/presentation/pages/registration/page/registration_page.dart';
 import 'feature/presentation/pages/saint_petersburg/controller/weather_saint_peterburg_cubit.dart';
 import 'feature/presentation/pages/sochi/controller/weather_sochi_cubit.dart';
 import 'injection_container.dart' as di;

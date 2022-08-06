@@ -6,10 +6,9 @@ import 'package:equatable/equatable.dart';
 import 'package:test_app/feature/domain/entities/weather.dart';
 import 'package:test_app/feature/domain/usecases/get_weather.dart';
 
-part 'weather_moscow_state.dart';
+import '../../../../../constants.dart';
 
-const SERVER_FAILURE_MESSAGE = 'Server Failure';
-const CACHED_FAILURE_MESSAGE = 'Cache Failure';
+part 'weather_moscow_state.dart';
 
 class WeatherMoscowCubit extends Cubit<WeatherMoscowState> {
   final GetWeather getWeather;
