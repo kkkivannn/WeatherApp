@@ -1,10 +1,10 @@
 // Dart imports:
-import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
 
 // Project imports:
+import '../../../../core/utils/save_tokens.dart';
 import '../kaliningrad/widget/card_kaliningrad.dart';
 import '../kazan/widget/card_kazan.dart';
 import '../moscow/widget/card_moscow.dart';
@@ -19,6 +19,7 @@ class CountOfTownWeather extends StatefulWidget {
 }
 
 class _CountOfTownWeatherState extends State<CountOfTownWeather> {
+  final SignInUtilsRepository signInUtilsRepository = SignInUtilsRepository();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,8 +35,8 @@ class _CountOfTownWeatherState extends State<CountOfTownWeather> {
                     top: 21,
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      exit(0);
+                    onPressed: () async {
+                      await signInUtilsRepository.logOut();
                     },
                     child: Row(
                       children: const [

@@ -30,6 +30,9 @@ class WeatherRemoteDataSourceImplemet implements WeatherRemoteDataSource {
       'username': username,
       'password': password,
     });
+    print(response.statusCode);
+    print(response.body);
+
     if (response.statusCode == 201) {
       return UserDataModel.fromJson(jsonDecode(response.body));
     } else {

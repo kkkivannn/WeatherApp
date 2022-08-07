@@ -5,13 +5,14 @@ import 'package:test_app/feature/presentation/pages/registration/controller/sign
 import 'package:test_app/feature/presentation/pages/registration/controller/sign_in_state.dart';
 
 // Project imports:
-import '../../home_page.dart/home.dart';
 
 class RegistrationPage extends StatelessWidget {
   const RegistrationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _userNameController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
     return BlocBuilder<SignInCubit, SignInState>(
       builder: (context, state) {
         if (state is SignInLoading) {
@@ -44,7 +45,7 @@ class RegistrationPage extends StatelessWidget {
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const <Widget>[Text('Error!')],
+                  children: const <Widget>[Text('Error!!')],
                 ),
               ),
             ),
@@ -75,6 +76,7 @@ class RegistrationPage extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.only(left: 29, right: 29),
                       child: TextField(
+                        controller: _userNameController,
                         style: const TextStyle(
                             fontSize: 16, color: Color(0xffF2F2F2)),
                         decoration: InputDecoration(
@@ -101,6 +103,7 @@ class RegistrationPage extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.only(left: 29, right: 29),
                       child: TextField(
+                        controller: _passwordController,
                         obscureText: true,
                         style: const TextStyle(
                             fontSize: 16, color: Color(0xffF2F2F2)),
@@ -142,12 +145,14 @@ class RegistrationPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CountOfTownWeather(),
-                            ),
-                          );
+                          if ((_userNameController.text != "" ||
+                              _passwordController.text != "")) {
+                            context.read<SignInCubit>().signInUser(
+                                  _userNameController.text,
+                                  _passwordController.text,
+                                  context,
+                                );
+                          }
                         },
                         child: const Text(
                           'Вход',
