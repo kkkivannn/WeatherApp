@@ -1,6 +1,8 @@
 // Dart imports:
 
 // Flutter imports:
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 // Project imports:
@@ -37,6 +39,7 @@ class _CountOfTownWeatherState extends State<CountOfTownWeather> {
                   child: TextButton(
                     onPressed: () async {
                       await signInUtilsRepository.logOut();
+                      exit(0);
                     },
                     child: Row(
                       children: const [

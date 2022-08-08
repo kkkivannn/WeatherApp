@@ -30,7 +30,6 @@ class SignInCubit extends Cubit<SignInState> {
               builder: (context) => const CountOfTownWeather(),
             ),
             (route) => false);
-
         emit(SignInComplete(userDataEntiti));
       });
     } catch (_) {

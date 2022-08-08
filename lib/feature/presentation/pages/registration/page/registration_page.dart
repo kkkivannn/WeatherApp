@@ -55,26 +55,26 @@ class RegistrationPage extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: SafeArea(
             child: Scaffold(
-              resizeToAvoidBottomInset: false,
               backgroundColor: Colors.blue,
               body: Center(
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.only(top: 135),
-                      child: const Text(
-                        'Авторизация',
-                        style: TextStyle(
-                          fontSize: 36,
-                          color: Colors.white,
-                        ),
+                    const Spacer(
+                      flex: 7,
+                    ),
+                    const Text(
+                      'Авторизация',
+                      style: TextStyle(
+                        fontSize: 36,
+                        color: Colors.white,
                       ),
                     ),
                     const Spacer(
                       flex: 7,
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 29, right: 29),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 29, right: 29, bottom: 10),
                       child: TextField(
                         controller: _userNameController,
                         style: const TextStyle(
@@ -99,9 +99,9 @@ class RegistrationPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Spacer(),
                     Container(
-                      padding: const EdgeInsets.only(left: 29, right: 29),
+                      padding:
+                          const EdgeInsets.only(left: 29, right: 29, top: 10),
                       child: TextField(
                         controller: _passwordController,
                         obscureText: true,
